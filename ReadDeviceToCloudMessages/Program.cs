@@ -10,6 +10,7 @@ namespace ReadDeviceToCloudMessages
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Hallo Welt");
         }
     }
 }
