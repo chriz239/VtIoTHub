@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimulatedDevice", "Simulate
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebSite", "WebSite\WebSite.csproj", "{BB7D9628-7B4B-4800-A151-85FC03A1EEAF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebSiteWithSignalR", "WebSiteWithSignalR\WebSiteWithSignalR.csproj", "{89AC8506-EA8C-4A0E-9BB6-46ACB01CA7D7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,12 +29,16 @@ Global
 		{BB7D9628-7B4B-4800-A151-85FC03A1EEAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BB7D9628-7B4B-4800-A151-85FC03A1EEAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BB7D9628-7B4B-4800-A151-85FC03A1EEAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89AC8506-EA8C-4A0E-9BB6-46ACB01CA7D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89AC8506-EA8C-4A0E-9BB6-46ACB01CA7D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89AC8506-EA8C-4A0E-9BB6-46ACB01CA7D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89AC8506-EA8C-4A0E-9BB6-46ACB01CA7D7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.TransientFaultHandling.6.0.1304.0\lib\portable-net45+win+wp8
 		SolutionGuid = {E0E3479F-A953-4240-A6A4-088EDC6112A6}
+		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.TransientFaultHandling.6.0.1304.0\lib\portable-net45+win+wp8
 	EndGlobalSection
 EndGlobal
