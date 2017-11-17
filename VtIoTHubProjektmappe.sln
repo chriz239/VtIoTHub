@@ -1,13 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2008
+VisualStudioVersion = 15.0.27004.2006
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReadDeviceToCloudMessages", "ReadDeviceToCloudMessages\ReadDeviceToCloudMessages.csproj", "{37D93340-7EB1-4172-8A46-A4FAB8F5E874}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimulatedDevice", "SimulatedDevice\SimulatedDevice.csproj", "{07AA2CDC-FE79-47CE-A207-2C7691DC7474}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebSiteWithSignalR", "WebSiteWithSignalR\WebSiteWithSignalR.csproj", "{89AC8506-EA8C-4A0E-9BB6-46ACB01CA7D7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalRBroadcastFromServer", "SignalRBroadcastFromServer\SignalRBroadcastFromServer.csproj", "{AFCB963A-AEF7-471E-93CD-B93E2100A343}"
 EndProject
@@ -27,10 +25,6 @@ Global
 		{07AA2CDC-FE79-47CE-A207-2C7691DC7474}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{07AA2CDC-FE79-47CE-A207-2C7691DC7474}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{07AA2CDC-FE79-47CE-A207-2C7691DC7474}.Release|Any CPU.Build.0 = Release|Any CPU
-		{89AC8506-EA8C-4A0E-9BB6-46ACB01CA7D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{89AC8506-EA8C-4A0E-9BB6-46ACB01CA7D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{89AC8506-EA8C-4A0E-9BB6-46ACB01CA7D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{89AC8506-EA8C-4A0E-9BB6-46ACB01CA7D7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{AFCB963A-AEF7-471E-93CD-B93E2100A343}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{AFCB963A-AEF7-471E-93CD-B93E2100A343}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AFCB963A-AEF7-471E-93CD-B93E2100A343}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -44,7 +38,7 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.TransientFaultHandling.6.0.1304.0\lib\portable-net45+win+wp8
 		SolutionGuid = {E0E3479F-A953-4240-A6A4-088EDC6112A6}
+		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.TransientFaultHandling.6.0.1304.0\lib\portable-net45+win+wp8
 	EndGlobalSection
 EndGlobal
