@@ -37,10 +37,8 @@ namespace SimulatedDevice
 
                 var telemetryDataPoint = new
                 {
-                    messageId = messageId++,
-                    deviceId = "myFirstDevice",
-                    temperature = currentTemperature,
-                    humidity = currentHumidity
+                    Device = "Simulated Device 1",
+                    Humidity = currentHumidity.ToString()
                 };
                 var messageString = JsonConvert.SerializeObject(telemetryDataPoint);
                 var message = new Message(Encoding.ASCII.GetBytes(messageString));

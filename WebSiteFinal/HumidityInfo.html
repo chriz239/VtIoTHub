@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Humidity IoT Hub Demo</title>
+</head>
+<body>
+    <h1>Humidity IoT Hub Demo</h1>
+
+    <h2>Live Humidity Devcies</h2>
+    <div id="humidityTable">
+        <table border="1">
+            <thead>
+                <tr><th>Device</th><th>Humidity Value</th></tr>
+            </thead>
+            <tbody>
+                <tr class="loading"><td colspan="2">loading...</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="Scripts/jquery-3.2.1.min.js"></script>
+    <script src="Scripts/jquery.signalR-2.2.2.min.js"></script>
+    <script src="/signalr/hubs"></script>
+    <script src="Humidity.js"></script>
+</body>
+</html>

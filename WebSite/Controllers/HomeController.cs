@@ -13,17 +13,5 @@ namespace WebSite.Controllers
         {
             return View();
         }
-
-        public HttpResponseMessage RegisterWebSocket()
-        {
-            return new HttpResponseMessage();
-        }
-
-        public class MyWebSocketHandler 
-        {
-            
-
-
-        }
     }
 }
