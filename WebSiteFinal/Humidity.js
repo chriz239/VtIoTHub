@@ -19,14 +19,16 @@ $(function () {
 
     function formatHumidityInfo(info) {
         return $.extend(info, {
-            Device: info.Device,
+            Device: info.Device.split(' ').join('_'),
             Humidity: info.Humidity
         });
     }
 
     function addInfo (humidityInfo) {
         var info = formatHumidityInfo(humidityInfo)
-        if ($humidityTableBody.find('#' + info.Device).length) {
+        //console.log(info.Device.split(' ').join('_'))
+        var obj = $humidityTableBody.find('#' + info.Device.split(' ').join('_'))
+        if (obj.length) {
             //$humidityTableBody.find('tr[data-symbol=' + info.Device + ']').replaceWith(rowTemplate.supplant(info))
             $humidityTableBody.find('#' + info.Device).replaceWith(rowTemplate.supplant(info))
         } else {
