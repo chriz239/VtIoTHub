@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalRBroadcastFromServer"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebSiteFinal", "WebSiteFinal\WebSiteFinal.csproj", "{D11347BB-20B1-4EEE-A655-E345EA52ECBF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebJob", "WebJob\WebJob.csproj", "{EE8AD815-60F4-47E3-BAF6-9C197BB1A49B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{D11347BB-20B1-4EEE-A655-E345EA52ECBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D11347BB-20B1-4EEE-A655-E345EA52ECBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D11347BB-20B1-4EEE-A655-E345EA52ECBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE8AD815-60F4-47E3-BAF6-9C197BB1A49B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE8AD815-60F4-47E3-BAF6-9C197BB1A49B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE8AD815-60F4-47E3-BAF6-9C197BB1A49B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE8AD815-60F4-47E3-BAF6-9C197BB1A49B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
