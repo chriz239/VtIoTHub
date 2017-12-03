@@ -27,6 +27,7 @@ namespace WebSiteFinal
 
         private HumidityPusher(IHubConnectionContext<dynamic> clients)
         {
+            /*
             Clients = clients;
             
             eventHubClient = EventHubClient.CreateFromConnectionString(connectionString, "messages/events");
@@ -36,8 +37,9 @@ namespace WebSiteFinal
             {
                 Task.Run(() => ReceiveMessagesFromDeviceAsync(partition));
             }
+            */
         }
-
+        /*
         private async Task ReceiveMessagesFromDeviceAsync(string partition)
         {
             var eventHubReceiver = eventHubClient.GetDefaultConsumerGroup().CreateReceiver(partition, DateTime.UtcNow);
@@ -53,6 +55,6 @@ namespace WebSiteFinal
                     Clients.All.updateHumidity(info);
                 } catch { }
             }
-        }
+        } */
     }
 }

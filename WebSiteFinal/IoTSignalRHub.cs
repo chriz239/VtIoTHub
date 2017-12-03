@@ -19,11 +19,11 @@ namespace WebSiteFinal
             _pusher = pusher;
         }
 
-        /*
-        public HumidityInfo GetAllHumidityInfos()
+        
+        public void UpdateHumidityInfos(HumidityInfo info)
         {
-            return _pusher.GetAllHumidityInfos();
+            Clients.All.updateHumidity(info);
         }
-        */
     }
+
 }

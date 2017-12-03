@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNet.SignalR.Client;
 using Microsoft.ServiceBus.Messaging;
+using Newtonsoft.Json;
 
 namespace WebJob
 {
@@ -15,30 +17,53 @@ namespace WebJob
 
         static void Main(string[] args)
         {
-            Console.WriteLine("Receive messages. Ctrl-C to exit.\n");
-            eventHubClient = EventHubClient.CreateFromConnectionString(connectionString, iotHubD2cEndpoint);
+            eventHubClient = EventHubClient.CreateFromConnectionString(connectionString, "messages/events");
 
             var d2cPartitions = eventHubClient.GetRuntimeInformation().PartitionIds;
-            
+
             var tasks = new List<Task>();
             foreach (string partition in d2cPartitions)
             {
                 tasks.Add(ReceiveMessagesFromDeviceAsync(partition));
             }
             Task.WaitAll(tasks.ToArray());
-
         }
 
         private static async Task ReceiveMessagesFromDeviceAsync(string partition)
         {
-            var eventHubReceiver = eventHubClient.GetDefaultConsumerGroup().CreateReceiver(partition, DateTime.UtcNow.AddHours(-200));
+            var eventHubReceiver = eventHubClient.GetDefaultConsumerGroup().CreateReceiver(partition, DateTime.UtcNow);
             while (true)
             {
-                EventData eventData = await eventHubReceiver.ReceiveAsync();
-                if (eventData == null) continue;
+                try
+                {
 
-                string data = Encoding.UTF8.GetString(eventData.GetBytes());
-                Console.WriteLine("Message received. Partition: {0} Data: '{1}'", partition, data);
+                    EventData eventData = await eventHubReceiver.ReceiveAsync();
+                    if (eventData == null) continue;
+
+                    // Convert to object
+                    string data = Encoding.UTF8.GetString(eventData.GetBytes());
+                    HumidityInfo info = JsonConvert.DeserializeObject<HumidityInfo>(data);
+
+#if DEBUG
+                    var hubConnection = new HubConnection("http://localhost:51943/");
+#else
+                    var hubConnection = new HubConnection("http://vtiothubwebsite.azurewebsites.net/");
+#endif
+                    IHubProxy hubProxy = hubConnection.CreateHubProxy("ioTSignalRHub");
+                    hubConnection.Start().Wait();
+                    hubProxy.Invoke("updateHumidityInfos", info).Wait();
+                    
+
+                    /*
+                    string data = Encoding.UTF8.GetString(eventData.GetBytes());
+                    Console.WriteLine("Message received. Partition: {0} Data: '{1}'", partition, data);
+                    */
+
+                }
+                catch (Exception ex)
+                {
+
+                }
             }
         }
     }
