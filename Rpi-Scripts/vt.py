@@ -13,26 +13,19 @@ MESSAGE_TIMEOUT = 10000
 RECEIVE_CONTEXT = 0
 MESSAGE_COUNT = 0
 MESSAGE_SWITCH = True
-TWIN_CONTEXT = 0
-SEND_REPORTED_STATE_CONTEXT = 0
-METHOD_CONTEXT = 0
 MESSAGE_TIMESPAN = 3600
-ALERTVALUE = 70
+ALERTVALUE = 900
 
-# global counters
+#global counters
 RECEIVE_CALLBACKS = 0
 SEND_CALLBACKS = 0
-BLOB_CALLBACKS = 0
-TWIN_CALLBACKS = 0
-SEND_REPORTED_STATE_CALLBACKS = 0
-METHOD_CALLBACKS = 0
-EVENT_SUCCESS = "success"
-EVENT_FAILED = "failed"
+
 
 #ConnectionString
 CONNECTION_STRING = "HostName=VtIoTHub.azure-devices.net;DeviceId=raspberrypi;SharedAccessKey=ZSMXQ9PWGnfPIzgIwt8CAz2dWuFKeu5Au96tKo7OpTw="
 #Protocol  HTTP OR MQTT OR AMQP
-PROTOCOL = IoTHubTransportProvider.AMQP
+PROTOCOL = IoTHubTransportProvider.MQTT
+#PROTOCOL = IoTHubTransportProvider.AMQP
 
 def iothub_client_init():
     # prepare iothub client
@@ -97,10 +90,10 @@ def iothub_client_run():
             if MESSAGE_SWITCH:
                 # send a few messages every minute
                 print ( "IoTHubClient sending %d messages" % MESSAGE_COUNT )
-                # value = random.uniform(0,100) #readADvalue(CH = None) 
-                value = getSensor.read_ad_channel(0)
+                #value = random.uniform(0,100) 
+                value = getSensor.read_ad_channel()
                 value = getSensor.dataprocessing(value)
-                msg_txt_formatted = "Value from Sensor: %d" % value
+                msg_txt_formatted = "{\"Device\":\"Raspberry_VT\",\"Humidity\":\"%d\"}" % value
                 print (msg_txt_formatted)
                 message = IoTHubMessage(msg_txt_formatted)
              
@@ -131,3 +124,4 @@ if __name__ == "__main__":
     print ( "IoT Hub Client for Python" )
 
     iothub_client_run()
+
