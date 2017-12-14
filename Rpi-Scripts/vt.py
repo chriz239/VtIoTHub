@@ -5,7 +5,7 @@ import time
 import sys
 from iothub_client import IoTHubClient, IoTHubClientError, IoTHubTransportProvider, IoTHubClientResult
 from iothub_client import IoTHubMessage, IoTHubMessageDispositionResult, IoTHubError, DeviceMethodReturnValue
-
+import getSensor
 
 TIMEOUT = 241000
 MINIMUM_POLLING_TIME = 9
@@ -97,7 +97,9 @@ def iothub_client_run():
             if MESSAGE_SWITCH:
                 # send a few messages every minute
                 print ( "IoTHubClient sending %d messages" % MESSAGE_COUNT )
-                value = random.uniform(0,100) #readADvalue(CH = None) 
+                # value = random.uniform(0,100) #readADvalue(CH = None) 
+                value = getSensor.read_ad_channel(0)
+                value = getSensor.dataprocessing(value)
                 msg_txt_formatted = "Value from Sensor: %d" % value
                 print (msg_txt_formatted)
                 message = IoTHubMessage(msg_txt_formatted)
