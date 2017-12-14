@@ -5,7 +5,7 @@ import time
 import sys
 from iothub_client import IoTHubClient, IoTHubClientError, IoTHubTransportProvider, IoTHubClientResult
 from iothub_client import IoTHubMessage, IoTHubMessageDispositionResult, IoTHubError, DeviceMethodReturnValue
-import getSensor
+
 
 TIMEOUT = 241000
 MINIMUM_POLLING_TIME = 9
@@ -13,13 +13,21 @@ MESSAGE_TIMEOUT = 10000
 RECEIVE_CONTEXT = 0
 MESSAGE_COUNT = 0
 MESSAGE_SWITCH = True
+TWIN_CONTEXT = 0
+SEND_REPORTED_STATE_CONTEXT = 0
+METHOD_CONTEXT = 0
 MESSAGE_TIMESPAN = 3600
-ALERTVALUE = 900
+ALERTVALUE = 70
 
-#global counters
+# global counters
 RECEIVE_CALLBACKS = 0
 SEND_CALLBACKS = 0
-
+BLOB_CALLBACKS = 0
+TWIN_CALLBACKS = 0
+SEND_REPORTED_STATE_CALLBACKS = 0
+METHOD_CALLBACKS = 0
+EVENT_SUCCESS = "success"
+EVENT_FAILED = "failed"
 
 #ConnectionString
 CONNECTION_STRING = "HostName=VtIoTHub.azure-devices.net;DeviceId=raspberrypi;SharedAccessKey=ZSMXQ9PWGnfPIzgIwt8CAz2dWuFKeu5Au96tKo7OpTw="
@@ -89,9 +97,8 @@ def iothub_client_run():
             if MESSAGE_SWITCH:
                 # send a few messages every minute
                 print ( "IoTHubClient sending %d messages" % MESSAGE_COUNT )
-                #value = random.uniform(0,100) 
-                value = getSensor.read_ad_channel() 
-                msg_txt_formatted = "{\"Device\":\"Raspberry VT\",\"Humidity\":\"%d\"}" % value
+                value = random.uniform(0,100) #readADvalue(CH = None) 
+                msg_txt_formatted = "Value from Sensor: %d" % value
                 print (msg_txt_formatted)
                 message = IoTHubMessage(msg_txt_formatted)
              
@@ -122,4 +129,3 @@ if __name__ == "__main__":
     print ( "IoT Hub Client for Python" )
 
     iothub_client_run()
-
