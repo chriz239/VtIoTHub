@@ -28,7 +28,7 @@ def dataprocessing(value=0):
 
 if __name__ == "__main__":
     delay = 0.5
-    print dataprocessing(1024)
-    print dataprocessing(300)
-    print dataprocessing(600)
+    print (dataprocessing(1024))
+    print (dataprocessing(300))
+    print (dataprocessing(600))
 
